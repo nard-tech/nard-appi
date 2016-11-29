@@ -7,11 +7,11 @@ Gem::Specification.new do |spec|
   spec.name          = "nard-appi"
   spec.version       = Nard::Appi::VERSION
   spec.authors       = ["Shu Fujita"]
-  spec.email         = ["osorubeki.fujita@gmail.com"]
+  spec.email         = [ 's.fujita@nard.tech' ]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary = 'This gem \'nard-appi\' enables you to access to APIs more easily.'
+  spec.description = 'This gem \'nard-appi\' enables you to access to APIs more easily. You can make API wrapper by using classes and modules contained in this gem.'
+  spec.homepage = 'https://github.com/nard-tech/nard-appi'
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
