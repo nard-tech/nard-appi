@@ -1,4 +1,4 @@
-require "nard/appi/version"
+require 'nard/appi/version'
 
 module Nard
   module Appi
