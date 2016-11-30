@@ -12,8 +12,8 @@ module Nard
       def initialize( gem_top_namespace, options = {} )
         options_keys = gem_top_namespace::OPTIONS_KEYS
 
-        self.class.class_eval do
-          attr_accessor *options_keys
+        self.class.instance_eval do
+          set_attr_accessor( options_keys )
         end
 
         options = gem_top_namespace.options.merge( options ).with_indifferent_access
@@ -21,6 +21,20 @@ module Nard
         options_keys.each do | key |
           send( "#{ key }=", options[ key ] )
         end
+      end
+
+      def self.set_attr_accessor( options_keys )
+        return if @_attr_accessor_defined
+
+        options_keys.each do | option_key |
+          getter_method = option_key.to_sym
+          setter_method = "#{ option_key }=".to_sym
+          writer = option_key.to_sym
+          attr_reader getter_method unless getter_method.in?( self.class.instance_methods )
+          attr_writer writer unless setter_method.in?( self.class.instance_methods )
+        end
+
+        @_attr_accessor_defined = true
       end
 
     end
