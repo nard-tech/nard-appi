@@ -27,7 +27,7 @@ module Nard
 
           # 設定内容をデフォルトの状態にする。
           # @return [Hash]
-          reset
+          reset!
         end
 
       end
