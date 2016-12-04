@@ -40,7 +40,7 @@ module Nard
 
           # 設定内容をデフォルトの状態にするメソッド
           # @return [Hash]
-          def reset
+          def reset!
             configure do | config |
               default_options.each do | key, value |
                 config.send( "#{ key }=", value )
