@@ -13,7 +13,7 @@ module Nard
         options_keys = gem_top_namespace::OPTIONS_KEYS
 
         self.class.instance_eval do
-          set_attr_accessor( options_keys )
+          set_attr_accessors( options_keys )
         end
 
         options = gem_top_namespace.options.merge( options ).with_indifferent_access
@@ -23,8 +23,8 @@ module Nard
         end
       end
 
-      def self.set_attr_accessor( options_keys )
-        return if @_attr_accessor_defined
+      def self.set_attr_accessors( options_keys )
+        return if @_attr_accessors_defined
 
         options_keys.each do | option_key |
           getter_method = option_key.to_sym
@@ -34,7 +34,7 @@ module Nard
           attr_writer writer unless setter_method.in?( self.class.instance_methods )
         end
 
-        @_attr_accessor_defined = true
+        @_attr_accessors_defined = true
       end
 
     end
