@@ -30,7 +30,7 @@ module Nard
               h = {}
 
               options.each do | k, v |
-                h[k] = normalize_value(v)
+                h[k] = normalize_value(v) if active_value?(v)
               end
 
               return h
@@ -42,6 +42,10 @@ module Nard
 
             def normalize_value( value )
               raise NotImplementedError
+            end
+
+            def active_value?( value )
+              true
             end
 
           end

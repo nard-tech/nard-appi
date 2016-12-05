@@ -1,4 +1,4 @@
-require_relative './module/args_normalizer'
+require_relative './args_normalizer'
 require_relative './module/path_normalizer'
 require_relative './module/options_normalizer'
 require_relative './module/boolean_normalizer'
@@ -15,7 +15,6 @@ module Nard
         # API へ送る情報を処理するクラス（基底クラス）
         class BaseNormalizer
 
-          include Module::ArgsNormalizer
           include Module::PathNormalizer
           include Module::OptionsNormalizer
           include Module::BooleanNormalizer
@@ -25,7 +24,7 @@ module Nard
           end
 
           def initialize( *args )
-            args, options = normalize_args( args )
+            args, options = ArgsNormalizer.execute( *args )
 
             @path = normalize_path( args )
 
