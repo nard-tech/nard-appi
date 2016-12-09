@@ -23,7 +23,7 @@ module Nard
 
         private
 
-        def __request__( con, method, _path, options )
+        def __request__( con, method, _path, options = {} )
           con.send( method ) do | req |
             case method
             when :get, :delete
