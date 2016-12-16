@@ -9,6 +9,16 @@ module Nard
 
       include Nard::Appi::ClientExt::Request
 
+      def self.concerns( *namespaaces, under: nil )
+        raise ArgumentError unless under.present?
+        namespaaces.each do | file_basename |
+          require "#{ under }/#{ file_basename.to_s.downcase }"
+          module_name = ( under.classify.constantize ).const_get( file_basename.to_s.capitalize )
+          puts "#{ module_name } is included."
+          include module_name
+        end
+      end
+
       def initialize( gem_top_namespace, options = {} )
         options_keys = gem_top_namespace::OPTIONS_KEYS
 
