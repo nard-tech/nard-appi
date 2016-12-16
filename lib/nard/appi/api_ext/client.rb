@@ -13,8 +13,8 @@ module Nard
 
         module ClassMethods
 
-          def client( gem_top_namespace, options = {} )
-            gem_top_namespace::Client.new( options )
+          def client( options = {} )
+            self::Client.new( options )
           end
 
         end
