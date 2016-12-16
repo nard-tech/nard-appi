@@ -9,6 +9,11 @@ module Nard
 
       include Nard::Appi::ClientExt::Request
 
+      def self.client_for( namespace )
+        @top_namespace = namespace
+        attr_reader :top_namespace
+      end
+
       def self.concerns( *namespaaces, under: nil )
         raise ArgumentError unless under.present?
         namespaaces.each do | file_basename |
