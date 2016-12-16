@@ -11,6 +11,9 @@ module Nard
 
       def self.client_for( namespace )
         @top_namespace = namespace
+      end
+
+      class << self
         attr_reader :top_namespace
       end
 
