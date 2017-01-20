@@ -35,10 +35,6 @@ module Nard
 
         private
 
-        def rescue_method_missing(e)
-          raise NotImplementedError
-        end
-
         def raise_error_if_needed
           nil
         end
