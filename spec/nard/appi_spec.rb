@@ -13,7 +13,7 @@ describe Nard::Appi do
     it "has constant 'VERSION'." do
       expect( Nard::Appi::VERSION ).to be_present
       expect( Nard::Appi::VERSION ).to be_instance_of( String )
-      expect( Nard::Appi::VERSION ).to eq( '0.2.1' )
+      expect( Nard::Appi::VERSION ).to eq( '0.2.2' )
       expect( Nard::Appi::VERSION ).to be_frozen
     end
 
