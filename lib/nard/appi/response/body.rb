@@ -6,8 +6,8 @@ module Nard
 
       class Body
 
-        def initialize( h, client, path, options )
-          @h = h
+        def initialize( obj, client, path, options )
+          @obj = obj
 
           @client = client
           @path = path
@@ -23,14 +23,14 @@ module Nard
         end
 
         def method_missing( method_name, *args, &block )
-          return super unless @h.respond_to?( method_name )
-          @h.send( method, *args, &block )
+          return super unless @obj.respond_to?( method_name )
+          @obj.send( method, *args, &block )
         rescue NoMethodError => e
           rescue_method_missing(e)
         end
 
         def respond_to?( method, include_all = true )
-          return @h.respond_to?( method, include_all ) || super
+          return @obj.respond_to?( method, include_all ) || super
         end
 
         private
